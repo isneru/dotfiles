@@ -14,7 +14,7 @@ This repository contains my dotfiles, including my Neovim configuration in `lua`
 ## Setup
 - Terminal Emulator: [FluentTerminal](https://github.com/felixse/FluentTerminal)
 - Prompt: [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)
-- [Wallpaper](https://github.com/isneru/dotfiles/wallpaper.jpg)
+- [Wallpaper](https://github.com/isneru/dotfiles/blob/main/wallpaper.jpg)
 
 ## Other info
 - Terminal background opacity: 90%
