@@ -9,7 +9,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])                                      
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])                                            -- delete without yanking
 
 vim.keymap.set('n', '<C-s>', ':lua vim.lsp.buf.format()<CR>:w<CR>', { noremap = true })       -- format and save
-vim.keymap.set('i', '<C-s>', '<Esc>:lua vim.lsp.buf.format()<CR>:w<CR>i', { noremap = true }) -- format and save
+vim.keymap.set('i', '<C-s>', '<Esc>:lua vim.lsp.buf.format()<CR>:w<CR>a', { noremap = true }) -- format and save
 
 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format)                                         -- format
 
