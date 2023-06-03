@@ -1,7 +1,5 @@
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex) -- file explorer
-
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")  -- move line down in visual mode
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")  -- move line up in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- move line down in visual mode
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- move line up in visual mode
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])                                                    -- delete and paste
@@ -27,3 +25,5 @@ end
 
 vim.keymap.set('n', '<C-t>', ':lua ToggleTerminalWindow()<CR>', { noremap = true })
 vim.keymap.set('i', '<C-t>', '<Esc>:lua ToggleTerminalWindow()<CR>', { noremap = true })
+
+vim.keymap.set("n", "<leader>fe", vim.cmd.Ex) -- file explorer
