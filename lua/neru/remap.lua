@@ -26,4 +26,7 @@ end
 vim.keymap.set('n', '<C-t>', ':lua ToggleTerminalWindow()<CR>', { noremap = true })
 vim.keymap.set('i', '<C-t>', '<Esc>:lua ToggleTerminalWindow()<CR>', { noremap = true })
 
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex) -- file explorer
+vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)            -- file explorer
+
+vim.keymap.set("i", "<C-b>", "<ESC>:NERDTreeToggle<CR>") -- toggle file explorer
+vim.keymap.set("n", "<C-b>", ":NERDTreeToggle<CR>")      -- toggle file explorer
