@@ -1,3 +1,3 @@
-require("neru.remap")
-require("neru.packer")
-require("neru.set")
+require('neru.remap')
+require('neru.packer')
+require('neru.set')

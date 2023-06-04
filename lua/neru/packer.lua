@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use { "catppuccin/nvim", as = "catppuccin",
+  use { 'catppuccin/nvim', as = 'catppuccin',
     config = function()
       vim.cmd('colorscheme catppuccin')
     end
@@ -47,21 +47,21 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
     config = function()
-      require("copilot").setup({
+      require('copilot').setup({
         suggestion = {
           enabled = true,
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = "<C-g>",
+            accept = '<C-g>',
           },
         },
       })
     end }
 
-  use { "preservim/nerdtree" }
+  use { 'preservim/nerdtree' }
 end)
