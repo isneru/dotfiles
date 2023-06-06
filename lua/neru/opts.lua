@@ -26,3 +26,8 @@ vim.g.mapleader          = ' '   -- leader key
 
 vim.g.loaded_netrw       = 1     -- disable netrw
 vim.g.loaded_netrwPlugin = 1     -- disable netrw
+
+vim.opt.laststatus       = 0     -- disable statusline
+vim.opt.ruler            = false -- disable ruler
+
+vim.opt.fillchars        = { eob = " " }
