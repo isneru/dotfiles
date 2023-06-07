@@ -49,4 +49,8 @@ return require('packer').startup(function(use)
   }
 
   use 'nvim-tree/nvim-tree.lua'
+
+  use { 'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+  }
 end)
