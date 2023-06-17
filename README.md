@@ -1,5 +1,9 @@
 # dotfiles
 
+> **Warning**
+> 
+> **This repository is no longer being maintained due to the fact that I gave up on the idea of switching to neovim.**
+
 This repository contains my dotfiles, including my Neovim configuration in `lua`.
 
 <details>
