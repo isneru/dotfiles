@@ -1,0 +1,17 @@
+{
+	"CaskaydiaCove Nerd Font": {
+		"weight": "bold",
+		"style": "mono",
+		"url": "https://github.com/eliheuer/caskaydia-cove"
+	},
+	"JetBrains": {
+		"weight": "bold",
+		"style": "mono",
+		"url": "https://github.com/JetBrains/JetBrainsMono"
+	},
+	"Monocraft Nerd Font Book": {
+		"weight": "normal",
+		"style": "mono",
+		"url": "https://github.com/IdreesInc/Monocraft"
+	}
+}
