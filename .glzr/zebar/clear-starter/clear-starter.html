@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Custom styles. -->
+		<link rel="stylesheet" type="text/css" href="./styles.css" />
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+		<!-- Add empty favicon to suppress not found errors. -->
+		<link rel="icon" href="data:;" />
+
+		<!-- Allows React to be run buildless via "text/babel" script below. -->
+		<script
+			src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"
+			integrity="sha256-aS0B0wnsaDByLfE16h4MDCP1fQFccysd1YWOcV+gbBo="
+			crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<script type="text/babel" data-type="module">
+			import React, { useState, useEffect } from 'https://esm.sh/react@18?dev'
+			import { createRoot } from 'https://esm.sh/react-dom@18/client?dev'
+			import * as zebar from 'https://esm.sh/zebar@2'
+
+			const providers = zebar.createProviderGroup({
+				glazewm: { type: 'glazewm' },
+				network: { type: 'network' },
+				cpu: { type: 'cpu' },
+				date: { type: 'date', formatting: 'EEE dd/MM-T' },
+				battery: { type: 'battery' },
+				memory: { type: 'memory' },
+				weather: { type: 'weather' },
+				keyboard: { type: 'keyboard' },
+				disk: { type: 'disk' },
+				audio: { type: 'audio' }
+			})
+
+			createRoot(document.getElementById('root')).render(<App />)
+
+			function App() {
+				const [output, setOutput] = useState(providers.outputMap)
+
+				useEffect(() => {
+					providers.onOutput(() => setOutput(providers.outputMap))
+				}, [])
+
+				// Get icon to show for current network status.
+				function getNetworkIcon(networkOutput) {
+					switch (networkOutput.defaultInterface?.type) {
+						case 'ethernet':
+							return <i className='text-violet-300 nf nf-md-ethernet_cable'></i>
+						case 'wifi':
+							if (networkOutput.defaultGateway?.signalStrength >= 80) {
+								return (
+									<i className='text-violet-300 fix nf nf-md-wifi_strength_4'></i>
+								)
+							} else if (networkOutput.defaultGateway?.signalStrength >= 65) {
+								return (
+									<i className='text-violet-300 fix nf nf-md-wifi_strength_3'></i>
+								)
+							} else if (networkOutput.defaultGateway?.signalStrength >= 40) {
+								return (
+									<i className='text-violet-300 fix nf nf-md-wifi_strength_2'></i>
+								)
+							} else if (networkOutput.defaultGateway?.signalStrength >= 25) {
+								return (
+									<i className='text-violet-300 fix nf nf-md-wifi_strength_1'></i>
+								)
+							} else {
+								return (
+									<i className='text-violet-300 fix nf nf-md-wifi_strength_outline'></i>
+								)
+							}
+						default:
+							return (
+								<i className='text-violet-300 fix nf nf-md-wifi_strength_off_outline'></i>
+							)
+					}
+				}
+
+				// Get icon to show for how much of the battery is charged.
+				function getBatteryIcon(batteryOutput) {
+					if (batteryOutput.chargePercent > 90)
+						return <i className='text-orange-300 fix nf nf-md-battery_90'></i>
+					if (batteryOutput.chargePercent > 70)
+						return <i className='text-orange-300 fix nf nf-md-battery_70'></i>
+					if (batteryOutput.chargePercent > 40)
+						return <i className='text-orange-300 fix nf nf-md-battery_40'></i>
+					if (batteryOutput.chargePercent > 20)
+						return <i className='text-orange-300 fix nf nf-md-battery_20'></i>
+					return (
+						<i className='text-orange-300 fix nf nf-md-battery_outline'></i>
+					)
+				}
+
+				function getWorkspaceColor(workspace, id) {
+					const colors = ['sky', 'rose', 'amber']
+					const focus = id =>
+						`ring-1 ring-offset-2 ring-offset-neutral-950/90 ring-${
+							colors[id % colors.length]
+						}-400`
+
+					return workspace.hasFocus
+						? `${focus(id)} bg-${colors[id % colors.length]}-400`
+						: `bg-${colors[id % colors.length]}-400`
+				}
+
+				// Get icon to show for current weather status.
+				function getWeatherIcon(weatherOutput) {
+					switch (weatherOutput.status) {
+						case 'clear_day':
+							return <i className='fix nf nf-weather-day_sunny'></i>
+						case 'clear_night':
+							return <i className='fix nf nf-weather-night_clear'></i>
+						case 'cloudy_day':
+							return <i className='fix nf nf-weather-day_cloudy'></i>
+						case 'cloudy_night':
+							return <i className='fix nf nf-weather-night_alt_cloudy'></i>
+						case 'light_rain_day':
+							return <i className='fix nf nf-weather-day_sprinkle'></i>
+						case 'light_rain_night':
+							return <i className='fix nf nf-weather-night_alt_sprinkle'></i>
+						case 'heavy_rain_day':
+							return <i className='fix nf nf-weather-day_rain'></i>
+						case 'heavy_rain_night':
+							return <i className='fix nf nf-weather-night_alt_rain'></i>
+						case 'snow_day':
+							return <i className='fix nf nf-weather-day_snow'></i>
+						case 'snow_night':
+							return <i className='fix nf nf-weather-night_alt_snow'></i>
+						case 'thunder_day':
+							return <i className='fix nf nf-weather-day_lightning'></i>
+						case 'thunder_night':
+							return <i className='fix nf nf-weather-night_alt_lightning'></i>
+					}
+				}
+
+				return (
+					<main className='grid grid-cols-3 gap-4 h-[50px] p-[10px] text-neutral-100'>
+						<section className='justify-self-left w-fit bg-neutral-950/80 rounded-full px-3 py-1 flex items-center gap-2'>
+							{output.glazewm && (
+								<div className='flex items-center gap-3'>
+									{output.glazewm.currentWorkspaces.map((workspace, id) => (
+										<button
+											className={`size-2 rounded-full hover:cursor-pointer ${getWorkspaceColor(
+												workspace,
+												id
+											)}`}
+											onClick={() =>
+												output.glazewm.runCommand(
+													`focus --workspace ${workspace.name}`
+												)
+											}
+											key={workspace.name}
+										/>
+									))}
+								</div>
+							)}
+						</section>
+
+						<section className='justify-self-center w-fit bg-neutral-950/80 rounded-full px-3 py-1 flex items-center gap-4'>
+							{output.weather && (
+								<div className='flex items-center text-sky-300 gap-1'>
+									{getWeatherIcon(output.weather)}
+									<span className='text-neutral-100'>
+										{Math.round(output.weather.celsiusTemp)}°C
+									</span>
+								</div>
+							)}
+
+							{output.date && (
+								<>
+									<div className='flex items-center gap-1'>
+										<i className='fix nf nf-md-calendar_month text-rose-300'></i>
+										{output.date.formatted.split('-')[0]}
+									</div>
+									<div className='flex items-center gap-1'>
+										<i className='fix nf nf-oct-clock text-emerald-300'></i>
+										{output.date.formatted.split('-')[1]}
+									</div>
+								</>
+							)}
+						</section>
+
+						<section className='justify-self-end w-fit bg-neutral-950/80 rounded-full px-3 py-1 flex items-center gap-4'>
+							{output.glazewm && (
+								<button
+									className={`hover:cursor-pointer fix text-red-400 nf ${
+										output.glazewm.tilingDirection === 'horizontal'
+											? 'nf-md-swap_horizontal'
+											: 'nf-md-swap_vertical'
+									}`}
+									onClick={() =>
+										output.glazewm.runCommand('toggle-tiling-direction')
+									}
+								/>
+							)}
+
+							{output.network && (
+								<div className='flex items-center gap-1'>
+									{getNetworkIcon(output.network)}
+									<span className='text-neutral-100'>
+										{output.network.defaultGateway?.ssid}
+									</span>
+								</div>
+							)}
+
+							{output.disk &&
+								output.disk.disks.map(
+									(disk, index) =>
+										disk.driveType == 'SSD' && (
+											<div className='flex items-center gap-1' key={index}>
+												<i className='fix text-sky-300 nf nf-fa-floppy_disk'></i>
+												{(
+													disk.availableSpace.bytes / Math.pow(1024, 3)
+												).toFixed(0)}
+												{'GB'}
+											</div>
+										)
+								)}
+
+							{output.battery && (
+								<div className='flex items-center gap-1'>
+									{output.battery.isCharging && (
+										<i className='fix text-emerald-500 nf nf-md-power_plug'></i>
+									)}
+									{getBatteryIcon(output.battery)}
+									{Math.round(output.battery.chargePercent)}%
+								</div>
+							)}
+						</section>
+					</main>
+				)
+			}
+		</script>
+	</body>
+</html>

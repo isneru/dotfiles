@@ -1,0 +1,24 @@
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+body {
+	font-family: 'Caskaydia Cove', ui-monospace, monospace;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+div,
+span,
+p {
+	cursor: default;
+	user-select: none;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+i.fix {
+	margin-bottom: 3px;
+}
