@@ -4,11 +4,10 @@ local act = wezterm.action
 -- local mux = wezterm.mux
 -- This will hold the configuration.
 local config = wezterm.config_builder()
--- local gpus = wezterm.gui.enumerate_gpus()
--- config.webgpu_preferred_adapter = gpus[1]
--- config.front_end = "WebGpu"
-
+local gpus = wezterm.gui.enumerate_gpus()
+config.webgpu_preferred_adapter = gpus[1]
 config.front_end = "WebGpu"
+
 config.max_fps = 60
 config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
@@ -19,7 +18,7 @@ config.term = "xterm-256color" -- Set the terminal type
 -- config.font = wezterm.font("Monocraft Nerd Font")
 -- config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font = wezterm.font("JetBrains Mono Regular")
-config.cell_width = 0.9
+config.cell_width = 1.0
 -- config.font = wezterm.font("Menlo Regular")
 -- config.font = wezterm.font("Hasklig")
 -- config.font = wezterm.font("Monoid Retina")
@@ -31,13 +30,13 @@ config.cell_width = 0.9
 -- config.cell_width = 0.9
 config.window_background_opacity = 0.9
 config.prefer_egl = true
-config.font_size = 16.0
+config.font_size = 14.0
 
 config.window_padding = {
-	left = 4,
-	right = 4,
-	top = 2,
-	bottom = 2,
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
 }
 
 -- tabs
