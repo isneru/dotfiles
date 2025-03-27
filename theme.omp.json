@@ -1,81 +1,78 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "console_title_template": "Terminal",
-  "upgrade": {
-    "source": "cdn",
-    "interval": "168h",
-    "auto": false,
-    "notice": false
-  },
-  "blocks": [
-    {
-      "type": "prompt",
-      "alignment": "left",
-      "segments": [
-        {
-          "properties": {
-            "prefix": "\u250c ",
-            "template": "@{{ .UserName }}"
-          },
-          "foreground": "#FF79C6",
-          "type": "session",
-          "style": "plain"
-        },
-        {
-          "properties": {
-            "enable_hyperlink": false,
-            "exclude_folders": [
-              "/super/secret/project"
-            ],
-            "folder_separator_icon": " / ",
-            "prefix": "<#ffffff>in</> ~/",
-            "style": "folder"
-          },
-          "foreground": "#988BC7",
-          "type": "path",
-          "style": "plain"
-        },
-        {
-          "properties": {
-            "prefix": "<#ffffff>on</> ",
-            "template": "{{ .HEAD }} "
-          },
-          "foreground": "#67E480",
-          "powerline_symbol": "\ue0b0",
-          "background": "transparent",
-          "type": "git",
-          "style": "plain"
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "left",
-      "segments": [
-        {
-          "properties": {
-            "postfix": "",
-            "prefix": "",
-            "text": "\u2514 "
-          },
-          "foreground": "#FF79C6",
-          "type": "text",
-          "style": "plain"
-        },
-        {
-          "properties": {
-            "postfix": "",
-            "prefix": "",
-            "text": "$"
-          },
-          "foreground": "#67E480",
-          "type": "text",
-          "style": "plain"
-        }
-      ],
-      "newline": true
-    }
-  ],
-  "version": 3,
-  "final_space": true
+	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"console_title_template": "Terminal",
+	"upgrade": {
+		"source": "cdn",
+		"interval": "168h",
+		"auto": false,
+		"notice": false
+	},
+	"blocks": [
+		{
+			"type": "prompt",
+			"alignment": "left",
+			"segments": [
+				{
+					"properties": {
+						"prefix": "\u250c ",
+						"template": "@{{ .UserName }}"
+					},
+					"foreground": "#FF79C6",
+					"type": "session",
+					"style": "plain"
+				},
+				{
+					"properties": {
+						"enable_hyperlink": false,
+						"exclude_folders": ["/super/secret/project"],
+						"folder_separator_icon": " / ",
+						"prefix": "<#ffffff>in</> ~/",
+						"style": "folder"
+					},
+					"foreground": "#988BC7",
+					"type": "path",
+					"style": "plain"
+				},
+				{
+					"properties": {
+						"branch_icon": "\ue725 ",
+						"template": "on {{ .Branch }} ",
+						"prefix": ""
+					},
+					"foreground": "#67E480",
+					"type": "git",
+					"style": "plain"
+				}
+			]
+		},
+		{
+			"type": "prompt",
+			"alignment": "left",
+			"segments": [
+				{
+					"properties": {
+						"postfix": "",
+						"prefix": "",
+						"text": "\u2514 "
+					},
+					"foreground": "#FF79C6",
+					"type": "text",
+					"style": "plain"
+				},
+				{
+					"properties": {
+						"postfix": "",
+						"prefix": "",
+						"text": "$"
+					},
+					"foreground": "#67E480",
+					"type": "text",
+					"style": "plain"
+				}
+			],
+			"newline": true
+		}
+	],
+	"version": 3,
+	"final_space": true
 }

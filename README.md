@@ -16,5 +16,6 @@ dotfiles/                            # Description
 ├── editor.json                       # Editor config
 ├── fonts.json                        # Fonts
 ├── terminal.ps1                      # Powershell config
+├── theme.omp.json                    # Oh My Posh theme
 └── README.md                         # (this.fileName)
 ```

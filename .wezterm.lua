@@ -6,8 +6,7 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 local gpus = wezterm.gui.enumerate_gpus()
 
-config.webgpu_preferred_adapter = gpus[1]
-config.front_end = "Software"
+config.front_end = "WebGpu"
 
 config.default_cwd = "dev/"
 
@@ -17,7 +16,7 @@ config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_rate = 500
 config.term = "xterm-256color" -- Set the terminal type
-config.font = wezterm.font("JetBrains Mono Regular")
+config.font = wezterm.font("Cascadia Mono NF")
 config.cell_width = 0.9
 config.window_background_opacity = 0.9
 config.prefer_egl = true

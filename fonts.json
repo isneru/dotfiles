@@ -1,8 +1,8 @@
 {
-	"CaskaydiaCove Nerd Font": {
+	"Cascadia Mono NF": {
 		"weight": "bold",
 		"style": "mono",
-		"url": "https://github.com/eliheuer/caskaydia-cove"
+		"url": "https://github.com/microsoft/cascadia-code"
 	},
 	"JetBrains": {
 		"weight": "bold",
