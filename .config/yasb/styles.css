@@ -77,7 +77,6 @@
 /***-------------------------------      • Windows Desktops •      --------------------------------***/
 
 .glazewm-workspaces {
-	margin: 0;
 }
 
 .glazewm-workspaces .ws-btn {
@@ -85,7 +84,7 @@
 	width: 12px;
 	height: 12px;
 	border-radius: 6px;
-	margin: 0 2px;
+	margin: 0 4px;
 	color: rgba(0, 0, 0, 0);
 }
 
@@ -357,21 +356,20 @@
 }
 
 .home-menu {
-	background-color: var(--mantle);
+	background-color: #191919;
 	border-radius: 8px;
 	padding: 0;
-	margin-left: 0px;
 }
 .home-menu .menu-item {
-	padding: 8px 48px 8px 12px;
-	font-size: 13px;
-	font-family: 'JetBrainsMono NF';
+	padding: 8px 40px 8px 12px;
+	font-size: 14px;
+	color: #eba0ac;
+	font-family: 'Roboto';
 	font-weight: 600;
 }
 .home-menu .menu-item:hover {
-	background-color: #cba6f4;
-	color: #181825;
-	margin: 4px 6px;
+	background-color: #252525;
+	margin: 2px 6px;
 	border-radius: 4px;
 }
 .home-menu .separator {

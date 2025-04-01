@@ -82,41 +82,21 @@ widgets:
         lazy_load_fadein: 400
         image_corner_radius: 8
         enable_cache: true
-  cava:
-    type: 'yasb.cava.CavaWidget'
-    options:
-      bar_height: 12
-      gradient: 1
-      reverse: 0
-      foreground: '#cba6f7'
-      gradient_color_1: '#cba6f7'
-      gradient_color_2: '#B4BEFE'
-      bars_number: 8
-      bar_spacing: 2
-      bar_width: 5
-      noise_reduction: 0.25
-      sleep_timer: 2
-      hide_empty: true
-      container_padding:
-        top: 0
-        left: 4
-        bottom: 0
-        right: 4
   home:
     type: 'yasb.home.HomeWidget'
     options:
-      label: "<span>\ue62a</span>"
+      label: "<span>\uf2dc</span>"
       menu_list:
         - { title: 'Developing', path: 'C:\\Users\\diogo\\dev' }
         - { title: 'Home', path: '~' }
         - { title: 'Downloads', path: "C:\\Users\\diogo\\Downloads" }
         - { title: 'Documents', path: "C:\\Users\\diogo\\Documents" }
         - { title: 'Pictures', path: "C:\\Users\\diogo\\Pictures" }
-        - { title: 'Videos', path: "C:\\Users\\diogo\\Videos" }
       system_menu: true
       power_menu: false
       blur: true
       round_corners: true
+      alignment: 'center'
       round_corners_type: 'normal'
       border_color: ''
       distance: 10
