@@ -2,10 +2,14 @@
 
 ```
 dotfiles/                            # Description
+├── .config/                          # Yasb config
+│   ├── yasb/
+│   │   ├── config.yaml
+│   │   └── styles.css
 ├── .glzr/                            # Glaze configs
 │   ├── glazewm/                        # GlazeWM config
 │   │   └── config.yaml
-│   └── zebar/                        # Zebar config
+│   └── zebar/                        # Zebar config (UNUSED)
 │   ├── clear-starter/                  #  Zebar theme
 │   │   ├── clear-starter.html
 │   │   ├── clear-starter.zebar.json

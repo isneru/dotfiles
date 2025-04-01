@@ -1,8 +1,8 @@
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 body {
-	font-family: 'Caskaydia Cove', ui-monospace, monospace;
-	font-size: 12px;
+	font-family: 'Cascadia Code NF', ui-monospace, monospace;
+	font-size: 15px;
 	overflow: hidden;
 }
 
