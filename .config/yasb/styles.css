@@ -46,7 +46,7 @@
 .yasb-bar {
 	padding: 0 8px;
 	margin: 0;
-	background-color: rgba(10, 10, 10, 0.9);
+	background-color: rgb(10, 10, 10);
 	border-radius: 8px;
 }
 
@@ -302,9 +302,10 @@
 }
 
 /* Hide media widget buttons */
-
 .media-widget .btn {
-	max-width: 0;
+	font-family: 'JetBrainsMono NF';
+	max-width: 10px;
+	margin: 0 4px;
 }
 
 .calendar {
@@ -387,28 +388,28 @@
 .battery-widget .widget-container .label.status-low {
 	color: var(--red);
 	background: rgba(243, 139, 168, 0.245);
-	margin: 4px 0px 4px 0px;
+	margin: 6px 0px;
 	padding: 0 6px 0 6px;
 	border-radius: 8px;
 }
 .battery-widget .widget-container .label.status-medium {
 	color: var(--yellow);
 	background: rgba(249, 226, 175, 0.25);
-	margin: 4px 0px 4px 0px;
+	margin: 6px 0px;
 	padding: 0 6px 0 6px;
 	border-radius: 8px;
 }
 .battery-widget .widget-container .label.status-high {
 	color: var(--teal);
 	background: rgba(148, 226, 213, 0.25);
-	margin: 4px 0px 4px 0px;
+	margin: 6px 0px;
 	padding: 0 6px 0 6px;
 	border-radius: 8px;
 }
 .battery-widget .widget-container .label.status-full {
 	color: var(--green);
 	background: rgba(166, 227, 161, 0.25);
-	margin: 4px 0px 4px 0px;
+	margin: 6px 0px;
 	padding: 0 6px 0 6px;
 	border-radius: 8px;
 }

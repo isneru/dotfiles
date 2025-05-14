@@ -36,9 +36,9 @@ bars:
       bottom: 8
       right: 8
     widgets:
-      left: ['glazewm_workspaces', 'media', 'notifications', 'active_window']
-      center: ['home']
-      right: ['weather', 'volume', 'clock', 'battery', 'power_menu']
+      left: ['glazewm_workspaces', 'notifications','media', 'active_window']
+      center: ['clock']
+      right: ['weather', 'volume', 'battery', 'power_menu']
 widgets:
   glazewm_workspaces:
     type: 'glazewm.workspaces.GlazewmWorkspacesWidget'
@@ -108,9 +108,9 @@ widgets:
   media:
     type: 'yasb.media.MediaWidget'
     options:
-      label: "<span>\udb80\udf87</span> {title}"
-      label_alt: "<span>\udb80\udf87</span> {artist}"
-      hide_empty: false
+      label: '{title} - {artist}'
+      label_alt: '...'
+      hide_empty: true
       max_field_size:
         label: 20
         label_alt: 20
@@ -121,14 +121,14 @@ widgets:
       thumbnail_padding: 0
       thumbnail_corner_radius: 8
       icons:
-        prev_track: "\ue892"
-        next_track: "\ue893"
-        play: "\ue768"
-        pause: "\ue769"
+        prev_track: "\udb81\udcae"
+        next_track: "\udb81\udcad"
+        play: "\uf04b"
+        pause: "\uf04c"
   clock:
     type: 'yasb.clock.ClockWidget'
     options:
-      label: "<span>\uf253</span>{%H:%M}"
+      label: '{%d %b - %H:%M}'
       label_alt: '{%a, %d %b %H:%M:%S}'
       timezones: [] #Looking up time zone info from registry
   weather:
@@ -144,16 +144,16 @@ widgets:
       callbacks:
         on_left: 'toggle_card'
       icons:
-        sunnyDay: "\udb81\udd99"
-        clearNight: "\ue3c2"
-        cloudyDay: "\ue21d"
-        cloudyNight: "\ue226"
-        rainyDay: "\ue371"
-        rainyNight: "\ue371"
-        snowyIcyDay: "\udb81\udf17"
-        snowyIcyNight: "\udb81\udf17"
-        blizzard: "\udb81\udd99"
-        default: "\udb81\udd99"
+        sunnyDay: ""
+        clearNight: ""
+        cloudyDay: ""
+        cloudyNight: ""
+        rainyDay: ""
+        rainyNight: ""
+        snowyIcyDay: ""
+        snowyIcyNight: ""
+        blizzard: ""
+        default: ""
       weather_card:
         blur: True
         round_corners: True
@@ -183,7 +183,7 @@ widgets:
         direction: 'down'
         distance: 6
       callbacks:
-        on_left: 'toggle_volume_menu'
+        on_left: 'toggle_mute'
         on_right: 'exec cmd.exe /c start ms-settings:sound'
   power_menu:
     type: 'yasb.power_menu.PowerMenuWidget'
